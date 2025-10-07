@@ -1,4 +1,4 @@
-# Installation on macOS
+# Installation on macOS on macBook Air
 
 Install PyTorch for macOS https://pytorch.org/get-started/locally/#macos-version
 
@@ -23,9 +23,9 @@ Install torch and torchvision; since my version of Python is being managed by br
 Note: -m: run library module as a script (terminates option list)
 
 * VSCode noticed an environment was made and I approved using this env. for this folder
-* rc_local_llm/bin/pip3 install torch torchvision
+* rc_local_llm/bin/pip3 install torch==2.4.0 torchvision
 OR
-* pip3 install torch torchvision if already inside the venv
+* pip3 install torch==2.4.0 torchvision if already inside the venv
 
 NOTE: Consider updating pip by running
 * python3 -m pip install --upgrade pip
