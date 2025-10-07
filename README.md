@@ -2,10 +2,13 @@
 
 Install PyTorch for macOS https://pytorch.org/get-started/locally/#macos-version
 
-Install python3: 
+Install python3@3.11: 
 * brew install python
 
-At the time, brew installed [python@3.13](https://formulae.brew.sh/formula/python@3.13#default).
+Via the book's recommendation on p. 254:
+> Many scientific computing libraries do not immediately support the newest version of Python. Therefore, when installing PyTorch, it’s advisable to use a version of Python that is one or two releases older. For instance, if the latest version of Python is 3.13, using Python 3.11 or 3.12 is recommended.
+
+At the time, brew installed [python@3.11](https://formulae.brew.sh/formula/python@3.11#default).
 
 According to the cask, a successful installation should install `python3` and `pip3`.
 
@@ -16,8 +19,16 @@ python3
 Install torch and torchvision; since my version of Python is being managed by brew, I used brew instead of pip3:
 
 * python3 -m venv rc_local_llm
+
+Note: -m: run library module as a script (terminates option list)
+
 * VSCode noticed an environment was made and I approved using this env. for this folder
 * rc_local_llm/bin/pip3 install torch torchvision
+OR
+* pip3 install torch torchvision if already inside the venv
+
+NOTE: Consider updating pip by running
+* python3 -m pip install --upgrade pip
 
 Verify the installation by running ./verify_installation.py
 
