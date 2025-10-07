@@ -36,3 +36,11 @@ for i, item in enumerate(vocab.items()):
   print(item)
   if i >= 50:
     break
+
+import simple_tokenizer_v1
+tokenizer = simple_tokenizer_v1.SimpleTokenizerV1(vocab)
+text=""""It's the last he painted, you know,"
+      Mrs. Gisburn said with pardonable pride."""
+ids = tokenizer.encode(text)
+print(ids)
+print(tokenizer.decode(ids))
