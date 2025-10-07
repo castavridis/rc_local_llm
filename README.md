@@ -43,3 +43,6 @@ tensor([[0.9258, 0.7378, 0.5676],
         [0.9273, 0.3701, 0.7406],
         [0.0249, 0.4018, 0.4693]])
 ```
+
+In Chapter 2.5 we install tiktoken
+* rc_local_llm] pip3 install tiktoken

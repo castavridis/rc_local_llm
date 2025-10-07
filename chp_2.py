@@ -66,3 +66,22 @@ print(text)
 tokenizer = simple_tokenizer_v2.SimpleTokenizerV2(vocab)
 print(tokenizer.encode(text))
 print(tokenizer.decode(tokenizer.encode(text)))
+
+from importlib.metadata import version
+import tiktoken
+print("tiktoken version:", version("tiktoken"))
+tokenizer = tiktoken.get_encoding("gpt2")
+text = (
+  "Hello, do you like tea? <|endoftext|> In the sunlit terraces"
+  "of someunknownPlace."
+)
+integers = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
+print(integers)
+strings = tokenizer.decode(integers)
+print(strings)
+
+text = "Akwirw ier"
+integers = tokenizer.encode(text)
+print(integers)
+strings = tokenizer.decode(integers)
+print(strings)
