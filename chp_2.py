@@ -44,3 +44,25 @@ text=""""It's the last he painted, you know,"
 ids = tokenizer.encode(text)
 print(ids)
 print(tokenizer.decode(ids))
+
+# Below will error out to illustrate errors with unknown tokens
+# text = "Hello, do you like tea?"
+# print(tokenizer.encode(text))
+
+# Add special tokens for unknown and endoftext
+all_tokens = sorted(list(set(preprocessed)))
+all_tokens.extend(["<|endoftext|>", "<|unk|>"])
+vocab = {token: integer for integer, token in enumerate(all_tokens)}
+print(len(vocab.items()))
+for i,item in enumerate(list(vocab.items())[-5:]):
+  print(item)
+
+import simple_tokenizer_v2
+text1 = "Hello, do you like tea?"
+text2 = "In the sunlit terraces of the palace."
+text = " <|endoftext|> ".join((text1, text2))
+print(text)
+
+tokenizer = simple_tokenizer_v2.SimpleTokenizerV2(vocab)
+print(tokenizer.encode(text))
+print(tokenizer.decode(tokenizer.encode(text)))
