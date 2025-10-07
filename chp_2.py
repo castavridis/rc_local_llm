@@ -1,5 +1,6 @@
 # Import "The Verdict" by Edith Warton into root
-# The Verdict is a 20,749-character short story with 4690 tokens
+# The Verdict is a 20,749-character short story with 
+# 4690 tokens and 1130 individual words
 import urllib.request
 url = ("https://raw.githubusercontent.com/rasbt/"
 "LLMs-from-scratch/main/ch02/01_main-chapter-code/"
@@ -19,4 +20,19 @@ preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', raw_text)
 # Create an array from items that are not spaces
 preprocessed = [item.strip() for item in preprocessed if item.strip()]
 # print(len(preprocessed))
-print(preprocessed[:30])
+# print(preprocessed[:30])
+
+# Convert tokens into token IDs
+
+# Get all words
+all_words = sorted(set(preprocessed))
+vocab_size = len(all_words)
+print(vocab_size)
+
+# TODO: Explain this syntax
+vocab = {token: integer for integer, token in enumerate(all_words)}
+
+for i, item in enumerate(vocab.items()):
+  print(item)
+  if i >= 50:
+    break
