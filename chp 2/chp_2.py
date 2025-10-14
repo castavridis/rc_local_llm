@@ -111,3 +111,15 @@ for i in range(1, context_size + 1):
 
 # "To implement efficient data loaders, we collect inputs in a tensor, x"
 # and collect corresponding prediction targets in tensor, y
+
+import gpt_dataloader_v1
+dataloader = gpt_dataloader_v1(
+  raw_text,
+  batch_size=1,
+  max_length=4,
+  stride=1,
+  shuffle=False
+)
+data_iter = iter(dataloader)
+first_batch = next(data_iter)
+print(first_batch)
